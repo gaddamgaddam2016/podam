@@ -9,6 +9,7 @@ general:
      
 test:
   override:
-     minitest_globs:
-    - test/integration/**/*.rb
-    - test/extra-dir/**/*.rb
+    - mvn clean install
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
