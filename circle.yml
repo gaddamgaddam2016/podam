@@ -9,4 +9,6 @@ general:
      
 test:
   override:
-    - mvn clean install
+     minitest_globs:
+    - test/integration/**/*.rb
+    - test/extra-dir/**/*.rb
